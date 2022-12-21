@@ -7,8 +7,15 @@
                 <h1>{{ $post->title }}</h1>
                 <a href="/dashboard/posts" class="btn btn-success"><span data-feather='arrow-left'></span> Back to all my
                     post</a>
-                <a href="/" class="btn btn-warning"><span data-feather='edit'></span> Edit</a>
-                <a href="/" class="btn btn-danger"><span data-feather='x-circle'></span> Delete</a>
+                <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning"><span data-feather='edit'></span>
+                    Edit</a>
+                <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline"
+                    onclick="return confirm('Are You Sure?')">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-danger"><span data-feather='x-circle'></span> Delete</button>
+                </form>
+
 
                 <img class="mt-3" src="https://source.unsplash.com/700x400?{{ $post->category->name }}"
                     class="card-img-top mb-3" alt="{{ $post->category->name }}" class="img-fluid">
