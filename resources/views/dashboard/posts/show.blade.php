@@ -16,9 +16,16 @@
                     <button class="btn btn-danger"><span data-feather='x-circle'></span> Delete</button>
                 </form>
 
+                @if ($post->image)
+                    <div style="max-height: 350px; overflow:hidden">
 
-                <img class="mt-3" src="https://source.unsplash.com/700x400?{{ $post->category->name }}"
-                    class="card-img-top mb-3" alt="{{ $post->category->name }}" class="img-fluid">
+                        <img class="mt-3" src="{{ asset('storage/' . $post->image) }}" class="card-img-top mb-3"
+                            alt="{{ $post->category->name }}" class="img-fluid">
+                    </div>
+                @else
+                    <img class="mt-3" src="https://source.unsplash.com/700x400?{{ $post->category->name }}"
+                        class="card-img-top mb-3" alt="{{ $post->category->name }}" class="img-fluid">
+                @endif
 
                 <article class="my-3 fs-6">
                     {!! $post->body !!}

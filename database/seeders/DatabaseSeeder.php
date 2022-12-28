@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory(3)->create();
+
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -25,21 +25,22 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-        /*User::create([
+        User::create([
             'name' => 'Miftakhul Kirom',
+            'username' => 'simaster',
             'email' => 'miftakhulkirom@gmail.com',
             'password' => bcrypt('12345678')
 
         ]);
+        User::factory(3)->create();
+        // User::create([
+        //     'name' => 'Parman Sumardi',
+        //     'email' => 'parmansumardi@gmail.com',
+        //     'password' => bcrypt('12345678')
 
-        User::create([
-            'name' => 'Parman Sumardi',
-            'email' => 'parmansumardi@gmail.com',
-            'password' => bcrypt('12345678')
+        // ]);
 
-        ]);*/
-
-       Category::create([
+        Category::create([
             'name' => 'Web Programming',
             'slug' => 'web-programming'
         ]);
@@ -56,7 +57,7 @@ class DatabaseSeeder extends Seeder
 
         Post::factory(20)->create();
 
-       /* Post::create([
+        /* Post::create([
             'title'=> 'Judul Pertama',
             'slug' => 'judul-pertama',
             'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -92,9 +93,5 @@ class DatabaseSeeder extends Seeder
             'category_id' => 2,
             'user_id' => 2
         ]);*/
-
-
-
-
     }
 }
